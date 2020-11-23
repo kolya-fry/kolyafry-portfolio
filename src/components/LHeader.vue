@@ -40,6 +40,11 @@ export default {
       // {title: 'Эксперименты', url: '/'},
       {title: 'Frytter', url: '/frytter'},
       {title: 'Planner', url: '/planner'},
+      {title: 'DeliveryService', url: '/delivery-service'},
+      {title: 'Banner', url: '/banner'},
+      {title: 'Chart', url: '/chart'},
+      {title: 'Videos', url: '/videos'},
+      {title: 'Timers', url: '/timers'},
     ]
   }),
   components: {

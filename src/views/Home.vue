@@ -10,12 +10,12 @@
     <div class="section my-section">
       <img :src="myPhoto" alt="Nikolay Buzlov" class="my-photo">
     </div>
+
   </div>
 </template>
 <script>
 
 import myPhoto from '@/assets/nikolay_photo.png'
-
 export default {
   name: 'Home',
   data: () => ({

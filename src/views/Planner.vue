@@ -53,11 +53,16 @@ import { mapGetters } from 'vuex'
 import findFreeId from '@/utils/findFreeId'
 
 function findTargetDate(days) {
-  debugger
-  const today = new Date
-  const endDate = today.getDate() + days
-  console.log(endDate)
+  const today = new Date()
+  return today.setDate(parseInt(today.getDate()) + parseInt(days))
 }
+
+
+// function findRestOfDays(date) {
+//   const today = new Date
+//   const rest = date * 24 * 60 * 60 * 1000 - today.unix()
+//   console.log(rest / 1000 / 60 / 60 / 24)
+// }
 
 const INIT_PLAN = {
   text: null,
@@ -78,13 +83,16 @@ export default {
     ...mapGetters(['user']),
   },
   methods: {
+
     addPLan() {
       this.newPlan.id = findFreeId(this.getPlans)
+
       if (!this.newPlan.daysBeforeEnd) {
         this.newPlan.hasTimer = false
       } else {
-        this.newplan.endDate = findTargetDate(this.getPlans.daysBeforeEnd)
+        this.newPlan.endDate = findTargetDate(this.newPlan.daysBeforeEnd)
       }
+
       this.$store.commit('planner/addPLan', this.newPlan)
       this.newPlan = { ...INIT_PLAN }
       this.hidePlanModal()

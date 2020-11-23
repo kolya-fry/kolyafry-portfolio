@@ -38,7 +38,57 @@ const routes = [
     },
     component: () =>
       import('@/views/Planner.vue')
-  }
+  },
+  {
+    path: '/delivery-service',
+    name: 'DeliveryService',
+    meta: {
+      layout: 'main',
+    },
+    component: () =>
+      import('@/views/DeliveryService.vue')
+  },
+  {
+    path: '/timers',
+    name: 'timers',
+    meta: {
+      layout: 'main',
+    },
+    component: () => import( '@/views/Timers.vue')
+  },
+  {
+    path: '/videos',
+    name: 'videos',
+    meta: {
+      layout: 'main',
+    },
+    component: () => import( '@/views/Videos.vue')
+  },
+  {
+    path: '/videos/:id',
+    name: 'video',
+    props: true,
+    meta: {
+      layout: 'main',
+    },
+    component: () => import('@/views/Watch.vue')
+  },
+  {
+    path: '/chart',
+    name: 'chart',
+    meta: {
+      layout: 'main',
+    },
+    component: () => import('@/views/Chart.vue')
+  },
+  {
+    path: '/Banner',
+    name: 'banner',
+    meta: {
+      layout: 'main',
+    },
+    component: () => import('@/views/Banner.vue')
+  },
 ];
 
 const router = new VueRouter({

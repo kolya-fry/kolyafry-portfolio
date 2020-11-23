@@ -13,7 +13,6 @@ Vue.use(messagePlugin)
 
 Vue.config.productionTip = false;
 
-  // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyC7PzqqnmMGDLpRFtA0RTGdhwsD5Fy3nHU",
   authDomain: "kolya-fry.firebaseapp.com",
@@ -23,7 +22,7 @@ const firebaseConfig = {
   messagingSenderId: "559430124339",
   appId: "1:559430124339:web:2511714c9f40e7976ab446"
 };
-  // Initialize Firebase
+
 firebase.initializeApp(firebaseConfig);
 
 let app
