@@ -12,6 +12,7 @@
             :markerId="mapPoint.id"
             v-if="mapPoint.id === mapPointActive"
             :coords="mapPoint.coords"
+            :icon="mapPoint.markerIcon"
             :hint-content="mapPoint.value"/>
         </div>
       </yandex-map>
@@ -22,6 +23,8 @@
   </div>
 </template>
 <script>
+
+import marker from '@/assets/marker.svg'
 
 const mapSettings = {
   apiKey: '1cf25807-9180-454d-89eb-c3ae8fbdff84',
@@ -38,12 +41,22 @@ export default {
       {
         id: 1,
         value: 'Пункт Выдачи заказов Песчаная улица, дом 13',
-        coords: [55.79956388, 37.51514796]
+        coords: [55.79956388, 37.51514796],
+        markerIcon: {
+          layout: 'default#imageWithContent',
+          imageHref: marker,
+          imageSize: [33, 43],
+        }
       },
       {
         id: 2,
         value: 'Пункт Выдачи заказов Подсосенский переулок, 11',
-        coords: [55.75767253, 37.65402202]
+        coords: [55.75767253, 37.65402202],
+        markerIcon: {
+          layout: 'default#imageWithContent',
+          imageHref: marker,
+          imageSize: [33, 43],
+        }
       }
     ],
     mapSettings: mapSettings,
