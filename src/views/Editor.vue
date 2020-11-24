@@ -64,14 +64,14 @@ export default {
       let text = new DOMParser()
         .parseFromString(e, "text/html")
         .querySelector(tag).textContent
-      console.log(text)
+
       let els = document
         .querySelector("#d1_ifr")
         .contentWindow.document.querySelector("#tinymce").childNodes
-      console.log(els)
+
       let find = Array.prototype.find
       let el = find.call(els, x => x.innerText == text)
- 
+
       el.scrollIntoView({ behavior: "smooth" })
     },
     async saveText() {
@@ -81,9 +81,6 @@ export default {
           document: this.tinymceDataTemp
         })
       } catch (e) {}
-      // console.log(this.$refs.tm)
-      // this.tinyKey += 1
-      // this.tinymceData = ""
     },
     editorInit() {
       this.$refs.tm.editor.setContent(this.tinymceDataTemp)

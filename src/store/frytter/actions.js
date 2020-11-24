@@ -1,7 +1,6 @@
 import API from '@/api'
 export default {
   async generateComment({ commit }, payload) {
-    console.log(payload)
     try {
 
       const { data: commentMessage } = await API.fetchFakeText.fetchFakeText({
@@ -17,7 +16,6 @@ export default {
         }
       })
     } catch (error) {
-      console.error(error)
     }
   },
 }

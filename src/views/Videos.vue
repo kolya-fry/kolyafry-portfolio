@@ -2,11 +2,11 @@
   <div class="timers">
     <Search v-model="query"></Search>
     <div class="grid_wrap">
-      <div class="loader" v-if="loading">
+      <!-- <div class="loader" v-if="loading">
         <div class="loader_item_wrap">
           <div class="loader_item"></div>
         </div>
-      </div>
+      </div> -->
       <div v-if="result && !loading" class="youtube_results">
         <div
           v-for="(videoItem, key) in result"

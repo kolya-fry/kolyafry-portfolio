@@ -5,7 +5,6 @@ export default {
   },
   mutations:{
     setDoc(state,n) {
-      console.log('storestateupdate',state)
       state.doc = n
     }
   },
@@ -19,7 +18,6 @@ export default {
     },
     async createTreeData({commit,dispatch}, {document}) {
       try {
-        console.log(document)
         const uid = await dispatch('getUid')
         const doc = await firebase.database().ref(`/users/${uid}/doc`).set({document})
         return {doc, id: doc.key}

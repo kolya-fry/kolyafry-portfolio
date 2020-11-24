@@ -92,7 +92,6 @@ export default {
       this.onOptionsChanged();
     },
     inputValueFrom(n) {
-      console.log(n);
       if (this.direction == "from" && this.watchValue) {
         this.inputValueTo = +this.rate(+n).toFixed(8);
       }
@@ -122,7 +121,6 @@ export default {
     toCurrencyArray() {
       let currents = [];
       for (let key in this.rates) {
-        //push unique values
         !currents.includes(key.substring(3, 6))
           ? currents.push(key.substring(3, 6))
           : false;
@@ -174,13 +172,12 @@ export default {
         this.currencyWatcherTimer = setInterval(() => {
           this.getRates();
         }, 60000);
-    
+
     },
     closeCurrencyValueWatcher() {
       clearInterval(this.currencyWatcherTimer);
     },
     rate(val) {
-      console.log(val, this.direction);
       if (this.direction == "from") {
         return (val * (this.selectedRate * 10000)) / 10000;
       }
@@ -190,7 +187,6 @@ export default {
     },
   },
   beforeDestroy() {
-    console.log('clearTimeout')
     this.closeCurrencyValueWatcher();
   },
   mounted() {
@@ -212,11 +208,10 @@ export default {
     max-width: 300px;
     word-break: break-all;
   .converter
-    border 3px solid #155ace
+    border 3px solid
     padding 60px
-    width 310px
+    width 450px
     margin 40px auto 0
-    color #155ace
     &__row
       display flex
       margin-bottom 14px
@@ -225,7 +220,7 @@ export default {
         display flex
         align-items center
         font-size 18px
-        
+
       &__input
         border 3px solid #155ace
         padding 6px 10px
@@ -250,7 +245,7 @@ export default {
       background-color #155ace
       z-index -1
       transition transform .3s cubic-bezier(0.36, -0.54, 0.57, 1.29)
-    &.active-right:after 
+    &.active-right:after
       transform translateX(100%)
     input
       display none

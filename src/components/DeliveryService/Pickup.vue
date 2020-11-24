@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="map-wrapper">
     <div class="mapPoints">
       <div class="mapPoint" v-for="mapPoint in mapPoints" :key="mapPoint.id">
         <label><input type="radio" :value="mapPoint.id" v-model="mapPointActive">{{mapPoint.value}}</label>
@@ -15,6 +15,9 @@
             :hint-content="mapPoint.value"/>
         </div>
       </yandex-map>
+    </div>
+    <div class="btn-wrapper">
+      <button type="submit">Отправить</button>
     </div>
   </div>
 </template>
@@ -47,9 +50,6 @@ export default {
     mapPointActive: null
   }),
   components: { yandexMap, ymapMarker },
-  mounted() {
-    console.log(this.$refs.map)
-  }
 }
 </script>
 
@@ -62,5 +62,15 @@ export default {
   .mapPoints
     display flex
     justify-content space-between
-    
+    margin 35px 0
+    flex-wrap wrap
+    @media screen and (max-width: 973px)
+      & > .mapPoint:first-child
+        margin-bottom 10px
+  .map-wrapper
+    padding-left 33px
+    padding-right 33px
+    padding-bottom 33px
+    background-color #fff
+    padding-top 1px
 </style>

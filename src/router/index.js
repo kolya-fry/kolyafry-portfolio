@@ -89,6 +89,14 @@ const routes = [
     },
     component: () => import('@/views/Banner.vue')
   },
+  {
+    path: '/Editor',
+    name: 'editor',
+    meta: {
+      layout: 'main',
+    },
+    component: () => import('@/views/Editor.vue')
+  },
 ];
 
 const router = new VueRouter({

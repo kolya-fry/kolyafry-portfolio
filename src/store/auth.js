@@ -4,7 +4,6 @@ export default {
   actions: {
     async login ({dispatch, commit}, {email, password}) {
       try {
-        console.log(dispatch)
         await firebase.auth().signInWithEmailAndPassword(email, password)
       } catch (error) {
         commit('setError', error)
@@ -13,7 +12,6 @@ export default {
     },
     async register({dispatch, commit}, {email, password, name}) {
       try {
-        console.log(dispatch)
         await firebase.auth().createUserWithEmailAndPassword(email, password)
         const uid = await dispatch('getUid')
         await firebase.database().ref(`/users/${uid}/info`).set({

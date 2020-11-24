@@ -2,7 +2,7 @@
   <div>
     <transition name="fade" mode="out-in">
       <apexchart type="candlestick" height="350" :options="chartOptions" :series="dataTable" v-if="dataTable[0].data"></apexchart>
-      <div class="loading" v-else></div>
+      <!-- <div class="loading" v-else></div> -->
       <div class="error" v-if="error">{{error}}</div>
     </transition>
   </div>
@@ -46,15 +46,10 @@ export default {
         "https://api.coincap.io/v2/candles?exchange=poloniex&interval=h8&baseId=ethereum&quoteId=bitcoin"
       ).then(resp =>{
         resp.data.data.forEach(x=>{
-          console.log(x)
           tempArr.push({
             x: new Date(x.period),
             y:[x.open,x.high,x.low,x.close]
           })
-          //  {
-          //     x: new Date(1538884800000),
-          //     y: [6604.98, 6606, 6604.07, 6606]
-          //   }
         })
       }).then(()=>{
         this.dataTable[0].data = tempArr

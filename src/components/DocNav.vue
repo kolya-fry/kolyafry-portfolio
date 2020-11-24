@@ -17,7 +17,6 @@ export default {
   computed: {
     headers() {
       let res = this.dom.match(/<h(.)>.*?<\/h\1>/g)
-      console.log(res)
       return res
     }
   }
@@ -25,7 +24,7 @@ export default {
 </script>
 
 <style lang="stylus">
-.headers-preview 
+.headers-preview
   border 1px solid #ccc
   padding 20px
   box-sizing border-box

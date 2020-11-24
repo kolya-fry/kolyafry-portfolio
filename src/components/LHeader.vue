@@ -13,6 +13,7 @@
         <a href="#">{{link.title}}</a>
       </router-link>
     </nav>
+
     <div class="theme-chosing">
       <div @click="changeTheme('light')" class="theme-btn ligth-theme"></div>
       <div @click="changeTheme('dark')" class="theme-btn dark-theme"></div>
@@ -25,6 +26,25 @@
         выйти
       </div>
     </div>
+    <div class="mobile-btn-wrapper">
+      <div class="mobile-btn" @click="showMenu = !showMenu">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <ul class="mobile-nav" v-if="showMenu">
+        <router-link
+          v-for="link in links"
+          :key="link.url"
+          :to="link.url"
+          tag="li"
+          active-class="active"
+          exact
+        >
+          <a href="#">{{link.title}}</a>
+        </router-link>
+      </ul>
+    </div>
   </div>
 </template>
 <script>
@@ -33,6 +53,7 @@ import Logo from './Logo'
 
 export default {
   data: () => ({
+    showMenu: false,
     links: [
       {title: 'Обо мне', url: '/'},
       // {title: 'Работы', url: '/'},
@@ -44,7 +65,8 @@ export default {
       {title: 'Banner', url: '/banner'},
       {title: 'Chart', url: '/chart'},
       {title: 'Videos', url: '/videos'},
-      {title: 'Timers', url: '/timers'},
+      // {title: 'Timers', url: '/timers'},
+      // {title: 'Editor', url: '/editor'},
     ]
   }),
   components: {
@@ -90,10 +112,35 @@ export default {
     align-items center
     justify-content space-between
     border-bottom 1px solid green
-
+  .mobile-btn-wrapper
+    display none
+    position relative
+    @media screen and (max-width 1024px)
+      display block
+  .mobile-btn
+    width 30px
+    height 30px
+    border 1px solid
+    padding: 9px 0 0 7px;
+    & .line
+      width 60%
+      height 2px
+      margin-bottom 2px
+      background: #07581b;
+  .mobile-nav
+    z-index: 2;
+    position: absolute;
+    top: 30px;
+    background: #1a1a1a
+    padding: 20px;
+    right: 0;
+    box-shadow: -5px 3px 9px 2px #07581b82;
+    & li:not(:last-child)
+      margin-bottom 20px
   nav
     display flex
-
+    @media screen and (max-width 1025px)
+      display none
     li
       list-style none
       margin-left 20px

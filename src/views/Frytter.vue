@@ -57,10 +57,6 @@ import randomUsersList from '@/utils/randomUsersList'
 import findFreeId from '@/utils/findFreeId'
 
 const imgRegExp = new RegExp('(https?://.*.(?:png|jpg))')
-// function replaceLinkByImg(x) {
-//   console.log('f')
-//   return `<img src="${x}">`
-// }
 
 function getRandomInt(min = 3, max = 30) {
   let rand = min + Math.random() * (max + 1 - min);
@@ -105,7 +101,6 @@ export default {
     },
     generateComments(id) {
       const commentsCount = getRandomInt(1, 10)
-      console.log(randomUsersList(getRandomInt(0, 20)))
       for (let i = 0; i <= commentsCount; i++) {
         setTimeout(() => {
           const now = new Date()
@@ -182,13 +177,11 @@ export default {
       padding 8px
       color: #fff;
     button
-      height 35px
       border 2px solid #00cb43
       background #00cb43
       color #1a1a1a
       position relative
       font-size 16px
-      top 1px
 
   .twit
     border 2px solid #707070
